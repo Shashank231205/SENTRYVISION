@@ -76,41 +76,6 @@ Ask:
 
 ---
 
-## 📁 Project Structure
-
-
-
-SENTRYVISION/
-│ app.py
-│ requirements.txt
-│ README.md
-│ space.yml
-│ .gitignore
-│
-├── utils/
-├── engine/
-│ ├── segmentation.py
-│ ├── detection.py
-│ ├── flow.py
-│ ├── pose.py
-│ ├── pose_3d/
-│ ├── depth/
-│ ├── actions/
-│ ├── gaze/
-│ ├── keyframes.py
-│ ├── chapters.py
-│ ├── highlights.py
-│ ├── camera_motion.py
-│ ├── realtime/
-│
-├── models/
-├── personas.py
-├── context_prompts.py
-└── style/
-
-
----
-
 ## 🔧 Installation
 
 ### 1. Clone
@@ -167,4 +132,5 @@ POST /stream
 Shashank KS
 AI • Computer Vision • LLMs • MLOps
 IIIT Nagpur 
+
 
