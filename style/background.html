@@ -1,0 +1,94 @@
+
+<style>
+  body, html {
+      margin: 0; padding: 0;
+      overflow: hidden !important;
+      background: #000;
+  }
+
+  #bg3d {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+  }
+</style>
+
+<div id="bg3d"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script>
+
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+camera.position.z = 5;
+
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById("bg3d").appendChild(renderer.domElement);
+
+const particlesCount = 3500;
+const particlesGeometry = new THREE.BufferGeometry();
+const posArray = new Float32Array(particlesCount * 3);
+
+for (let i = 0; i < particlesCount * 3; i++) {
+    posArray[i] = (Math.random() - 0.5) * 20;
+}
+
+particlesGeometry.setAttribute("position", new THREE.BufferAttribute(posArray, 3));
+
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.015,
+    color: "#00ffff",
+    transparent: true,
+    opacity: 0.8
+});
+
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+scene.add(particlesMesh);
+
+const torusGeometry = new THREE.TorusGeometry(1.4, 0.35, 16, 100);
+const torusMaterial = new THREE.MeshBasicMaterial({
+    color: "#0ff",
+    wireframe: true
+});
+const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+scene.add(torus);
+
+const ambient = new THREE.AmbientLight("#00ffff", 1.0);
+scene.add(ambient);
+
+let mouseX = 0, mouseY = 0;
+
+document.addEventListener("mousemove", (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+});
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    particlesMesh.rotation.y += 0.001;
+    particlesMesh.rotation.x += 0.0004;
+
+    torus.rotation.x += 0.002;
+    torus.rotation.y += 0.003;
+
+    camera.position.x += (mouseX * 0.2 - camera.position.x) * 0.05;
+    camera.position.y += (mouseY * 0.2 - camera.position.y) * 0.05;
+
+    renderer.render(scene, camera);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>

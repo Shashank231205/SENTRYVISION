@@ -1,0 +1,96 @@
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    overflow-x: hidden;
+}
+
+/* Blur background panels */
+.gradio-container {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 35px rgba(0,0,0,0.25);
+}
+
+/* Tabs */
+.gradio-tabs .tab-nav button {
+    background: rgba(255,255,255,0.07);
+    padding: 10px 20px;
+    border-radius: 14px;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.gradio-tabs .tab-nav button:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* Buttons */
+.gradio-button {
+    background: linear-gradient(135deg, #0df, #a0f);
+    color: #fff !important;
+    padding: 14px 22px;
+    font-weight: 600;
+    border-radius: 14px;
+    border: none;
+    transition: 0.25s ease-in-out;
+}
+
+.gradio-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,255,255,0.35);
+}
+
+/* Textbox / Code / Video Components */
+.gradio-video, .gradio-textbox, .gradio-code, .gradio-file {
+    background: rgba(255, 255, 255, 0.10) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    backdrop-filter: blur(12px);
+}
+
+/* Markdown Title */
+h1, h2, h3 {
+    font-family: "Inter", sans-serif;
+    color: #fff !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.4);
+}
+
+/* General Text */
+p, span, label {
+    color: #eee !important;
+}
+
+/* Center markdown blocks */
+.gradio-markdown {
+    text-align: center;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadein {
+    0%   { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0px); }
+}
+
+.gradio-container, .gradio-row, .gradio-column {
+    animation: fadein 0.8s ease-out;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.25);
+    border-radius: 10px;
+}

@@ -1,0 +1,22 @@
+# =====================================================
+# PE-VISTA 2.0 — HuggingFace Spaces GPU Config
+# =====================================================
+
+title: "PE-VISTA 2.0 — Video Intelligence Studio"
+emoji: "🎥"
+colorFrom: "blue"
+colorTo: "purple"
+sdk: gradio
+app_file: app.py
+pinned: false
+
+# === Enable GPU ===
+hardware:
+  accelerator: A10G   # HuggingFace GPU (similar to T4 but stronger)
+
+# === Environment ===
+dependencies:
+  - python=3.10
+
+# Prevent container from sleeping
+sleep: false
