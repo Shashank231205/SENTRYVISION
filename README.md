@@ -1,4 +1,4 @@
-EADME.md (Full Content)
+
 # SENTRYVISION — Ultra Advanced Video Intelligence Suite (PE-VISTA 3.0 Ultra)
 
 SENTRYVISION is an industrial-grade, multimodal **Video Intelligence System** built on top of Meta Perception Encoder (PE-Core & PE-Spatial) + Perception Language Model (PLM).  
@@ -167,3 +167,4 @@ POST /stream
 Shashank KS
 AI • Computer Vision • LLMs • MLOps
 IIIT Nagpur 
+
